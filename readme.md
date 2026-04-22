@@ -223,7 +223,7 @@ python avss.py \
 
 Modify the YAML configuration file (`configs/train_config.yaml`). 
 
-### 2. Run the test script
+### 2. Run the train script
 Execute the following command from the project root:
 ```
 python train_test.py
