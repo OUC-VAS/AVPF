@@ -206,7 +206,7 @@ def process_avlips(args, model, transform):
 def main():
     parser = argparse.ArgumentParser(description="Extract AVHubert features")
     parser.add_argument("--dataset", type=str, default="AV1M", help="Dataset to extract features for")
-    parser.add_argument("--metadata", type=str, default="av1m_metadata/train_metadata.csv", help="Path to the dataset metadata")
+    parser.add_argument("--metadata", type=str, default="av1m_metadata/real_train_metadata.csv", help="Path to the dataset metadata")
     parser.add_argument("--split", default="train", help="For AV1M: data split to process (e.g., val, train)")
     parser.add_argument("--ckpt_path", type=str, default="self_large_vox_433h.pt", help="Path to AVHubert checkpoint")
     parser.add_argument("--data_path", type=str, default="av1m_preprocessed/", help="Path to the root folder of preprocessed data")

@@ -244,7 +244,7 @@ def main():
     parser = argparse.ArgumentParser(description="Preprocess videos for FakeAVCeleb, AV1M, or AVLips dataset")
     parser.add_argument('--dataset', default='AV1M', help='Select dataset: FakeAVCeleb (favc), AV1M (av1m), or AVLips')
     parser.add_argument('--split', default='train', help='For AV1M: data split to process (e.g., val, train)')
-    parser.add_argument("--metadata", type=str, default="av1m_metadata/train_metadata.csv", help="Path to the dataset metadata")
+    parser.add_argument("--metadata", type=str, default="av1m_metadata/real_train_metadata.csv", help="Path to the dataset metadata")
     parser.add_argument('--category', choices=['RealVideo-RealAudio', 'RealVideo-FakeAudio', 'FakeVideo-RealAudio', 'FakeVideo-FakeAudio', 'all'], default='all', help='For FakeAVCeleb: select category (RealVideo-RealAudio, etc.)')
     parser.add_argument('--data_path', default="av1m/", help='Path to the dataset root folder')
     parser.add_argument('--max_workers', type=int, default=8, help='Number of parallel workers (default: 8)')

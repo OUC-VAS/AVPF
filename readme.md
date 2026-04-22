@@ -99,7 +99,7 @@ Supported datasets: `AV1M`, `FakeAVCeleb`, `AVLips`.
 ```bash
 python deepfake_preprocess.py \
     --dataset AV1M \
-    --metadata /path/to/av1m_metadata/train_metadata.csv \
+    --metadata /path/to/av1m_metadata/real_train_metadata.csv \
     --data_path /path/to/AV1M_root \
     --save_path /path/to/save/output_videos_and_audio
 ```
@@ -164,7 +164,71 @@ python deepfake_feature_extraction.py \
     --trimmed
 ```
 Note: For AVLips, --metadata is not needed. The script will automatically process videos found in 0_real/ and 1_fake/ subdirectories.
-    
+
+## Training the Model
+### Generate AVPF Samples
+**VSB**
+```
+python vsb.py \
+  --input /path/to/dataset/train \
+  --output /path/to/output/vsb_train \
+  --suffix _vsbm \
+  --mirror \
+  --shift-frames 2 \
+  --bidir \
+  --shape-predictor /path/to/shape_predictor_68_face_landmarks.dat \
+  --win-secs 0.5,1.5 \
+  --hop-secs 1.0 \
+  --win-prob 0.6 \
+  --win-smooth 6 \
+  --alpha 1.0 \
+  --workers 12
+```
+
+**ASB**
+```
+python asb.py \
+  --input /path/to/dataset/train \
+  --output /path/to/output/asb_train \
+  --suffix _asbm \
+  --mirror \
+  --shift rand:0.02,0.05 \
+  --bidir \
+  --shift-prob 1.0 \
+  --gate-mode sliding \
+  --win-secs 2.0 \
+  --hop-secs 1.0 \
+  --win-prob 0.6 \
+  --win-smooth 6 \
+  --alpha 1.0 \
+  --workers 12
+```
+
+**AVSS**
+```
+python avss.py \
+  --input /path/to/dataset/train \
+  --output /path/to/output/avss_train \
+  --suffix _cmav \
+  --mirror \
+  --min-gap-sec 0.5 \
+  --max-gap-sec 1.0 \
+  --max-mean-diff 10.0 \
+  --workers 20 \
+  --seed 42
+```
+### Generate AVPF Samples
+
+### 1. Prepare the configuration file
+
+Modify the YAML configuration file (`configs/train_config.yaml`). 
+
+### 2. Run the test script
+Execute the following command from the project root:
+```
+python train_test.py
+```
+
 ## Testing the Model
 
 After training or obtaining a pretrained checkpoint, you can evaluate the model on a test set using `train_test.py` with the `--test` flag.
