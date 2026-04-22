@@ -4,8 +4,6 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 
-#python -m avhubert.deepfake_feature_extraction     --dataset FakeAVCeleb     --metadata /media/lijiucui/data_disk/FakeAVCeleb_v1.2/meta_data.csv     --ckpt_path ~/project/AVH-Align/av_hubert/avhubert/self_large_vox_433h.pt     --data_path /media/lijiucui/data_disk/FakeAVCeleb_v1.2/output_videos_and_audio     --save_path /media/lijiucui/data_disk/FakeAVCeleb_v1.2/features     --category all
-
 import cv2
 import torch
 import random

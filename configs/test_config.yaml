@@ -1,7 +1,6 @@
 data_info:
   name: "FAVC"  # Choose the dataset used: FAVC (FakeAVCeleb), AV1M (AV-Deepfake1M), AVLips
-  #root_path: "path/to/features"
-  root_path: "/media/lijiucui/data_disk/FakeAVCeleb_v1.2/features"
+  root_path: "path/to/features"
   csv_root_path: "csv_metadata/favc"
   apply_l2: True  # Apply l2 normalization of input features (always used in our experiments)
   num_workers: 12

@@ -20,7 +20,7 @@ Official PyTorch Implementation of AVPF
 
 - [x] Release testing code.
 - [x] Release testing weights.
-- [ ] Release training code.
+- [x] Release training code.
 
 ---
 
@@ -166,7 +166,7 @@ python deepfake_feature_extraction.py \
 Note: For AVLips, --metadata is not needed. The script will automatically process videos found in 0_real/ and 1_fake/ subdirectories.
 
 ## Training the Model
-### Generate AVPF Samples
+### 1.Generate AVPF Samples
 **VSB**
 ```
 python vsb.py \
@@ -217,16 +217,15 @@ python avss.py \
   --workers 20 \
   --seed 42
 ```
-### Generate AVPF Samples
 
-### 1. Prepare the configuration file
+### 2. Prepare the configuration file
 
 Modify the YAML configuration file (`configs/train_config.yaml`). 
 
-### 2. Run the train script
+### 3. Run the train script
 Execute the following command from the project root:
 ```
-python train_test.py
+python train_test.py --config_path configs/train_config.yaml
 ```
 
 ## Testing the Model
