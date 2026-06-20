@@ -256,3 +256,5 @@ If you find this useful, please cite our paper:
   year={2026}
 }
 ```
+## LICENSE
+This repository is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). This repository is intended for academic research use only. Commercial use is prohibited. Please refer to the LICENSE file for more details.
